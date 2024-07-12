@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Button,
   Divider,
@@ -13,10 +12,18 @@ import {
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import banner from '../images/ban.png';
+import Services from "./FeaturePages/services";
+import Tools from "./tools";
+import Talent from './FeaturePages/talent';
+import Work from './FeaturePages/work';
+import ContactBanner from "./FeaturePages/contact";
+
+
 interface HomeProps {}
 
 const Home: React.FC<HomeProps> = ({}) => {
   const location = useLocation();
+  
 
   useEffect(() => {
     const hash = location.hash;
@@ -29,6 +36,9 @@ const Home: React.FC<HomeProps> = ({}) => {
       window.scrollTo({ top: 0, behavior: "auto" });
     }
   }, [location]);
+
+
+
   return (
     <div  className="px-2 py-8 sm:px-6 sm:py-6">
       <div id='home-section' className="p-4 flex flex-col sm:flex-row mt-0 sm:items-center justify-center sm:justify-start h-[calc(75vh-65px)] ml-2 gap-10">
@@ -41,7 +51,7 @@ const Home: React.FC<HomeProps> = ({}) => {
           </Typography>
 
           <Typography
-            variant="h4"
+            variant="h5"
             className="font-normal text-center text-gray-800 sm:hidden sm:text-left dark:text-gray-300 sm:mt-0"
           >
            Transform your business with our innovative digital solutions.
@@ -50,13 +60,13 @@ const Home: React.FC<HomeProps> = ({}) => {
           <br />
 
           <Typography
-            className="hidden font-light text-center text-gray-800 sm:flex sm:text-left dark:text-gray-300"
+            className="hidden font-light text-center text-gray-800 sm:flex sm:text-left dark:text-neutral-500"
             style={{ fontSize: "1.1rem" }}
           >
             Elevate your business with our cutting-edge digital web solutions, crafted to drive transformative success. Experience innovation, unlock potential, and propel your growth.
           </Typography>
           <Typography
-            className="font-normal text-center text-gray-800 sm:hidden sm:text-left dark:text-gray-300 sm:mt-0"
+            className="font-normal text-center text-gray-800 sm:hidden sm:text-left dark:text-neutral-500 sm:mt-0"
             style={{ fontSize: "0.8rem" }}
           >
             Elevate your business with our cutting-edge digital web solutions, crafted to drive transformative success. Experience innovation, unlock potential, and propel your growth.
@@ -107,7 +117,7 @@ const Home: React.FC<HomeProps> = ({}) => {
           />
         </div>
 
-        <div className="items-center justify-center hidden ml-6  sm:flex ">
+        <div className="items-center justify-center hidden ml-2  sm:flex ">
           <img
             src={banner}
             className="w-full h-[calc(87vh-110px)] object-cover object-center"
@@ -115,21 +125,12 @@ const Home: React.FC<HomeProps> = ({}) => {
           />
         </div>
       </div>
-      <div className="mt-32 p-4">
-        <h1 className="text-sm sm:text-3xl text-center font-semi-bold">OUR SERVICES</h1>
-        <p className="text-center pt-2 text-xs sm:text-sm text-zinc-500 font-semi-bold">Where ideas become reality</p>
-      </div>
-      <div className="w-full  p-4 flex flex-col sm:flex-row gap-6">
-        <div className="w-full sm:w-1/3 rounded-lg bg-slate-200 dark:bg-neutral-800 sm:h-[550px]">
-
-        </div>
-        <div className="w-full sm:w-1/3 rounded-lg bg-slate-200 dark:bg-neutral-800 sm:h-[550px]">
-
-        </div>
-        <div className="w-full sm:w-1/3 rounded-lg bg-slate-200 dark:bg-neutral-800 sm:h-[550px]">
-          
-        </div>
-      </div>
+      
+      <Services/>
+      <Tools/>
+      <Talent/>
+      <Work/>
+      <ContactBanner/>
       <br />
       <Divider />
       <div className="flex flex-col items-center justify-between gap-4 p-4 py-4 sm:py-4 sm:flex-row sm:gap-8">
@@ -150,7 +151,7 @@ const Home: React.FC<HomeProps> = ({}) => {
               Careers
             </Typography>
           </Link>
-          <Link to={""}>
+          <Link to="/privacy">
             <Typography className="text-gray-600 dark:text-gray-300">
               Privacy
             </Typography>

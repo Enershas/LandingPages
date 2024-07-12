@@ -3,6 +3,7 @@ import { RecoilRoot } from "recoil";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RootContainer from "./globals/root";
 import CookiesBar from "./components/CookiesBar";
+import Privacy from "./FooterPages/Privacy";
 
 
 const Home = lazy(() => import("./pages/home"));
@@ -20,7 +21,7 @@ const App = () => {
         <RootContainer>
           <Routes>
             <Route path="" Component={Home} />
-            
+            <Route path="/privacy" element={<Privacy/>} />
           </Routes>
         </RootContainer>
       </BrowserRouter>
